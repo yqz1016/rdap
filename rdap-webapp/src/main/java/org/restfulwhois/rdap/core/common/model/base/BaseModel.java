@@ -76,6 +76,12 @@ public class BaseModel {
      * notice.
      */
     private List<Notice> notices;
+    
+    /**
+     * customPrefix .
+     */
+    @JsonIgnore
+    private static final String CUSTOM_PREFIX = "custom_";
 
     /**
      * customModel.
@@ -84,7 +90,7 @@ public class BaseModel {
      *      Position for Properties in customModel is at last.
      * </pre>
      */
-    @JsonUnwrapped
+    @JsonUnwrapped(prefix = CUSTOM_PREFIX)    
     private BaseCustomModel customModel;
 
     /**

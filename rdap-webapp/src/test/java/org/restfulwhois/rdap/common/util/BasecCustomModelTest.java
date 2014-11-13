@@ -35,7 +35,7 @@ import static org.junit.Assert.assertThat;
 
 import org.hamcrest.core.StringContains;
 import org.junit.Test;
-import org.restfulwhois.rdap.core.common.util.TestClass;
+import org.restfulwhois.rdap.core.common.model.base.BaseCustomModel;
 import org.restfulwhois.rdap.core.entity.model.Entity;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -56,15 +56,15 @@ public class BasecCustomModelTest {
         Entity entity = null;
         entity = new Entity();
         entity.setPort43("port43");      
-        TestClass custom = new TestClass();       
-        custom.setProcool("HTTP");
+        CustomModel custom = new CustomModel();       
+        custom.setProtocol("HTTP");
+        custom.setDigest(1);
         entity.setCustomModel(custom);
         ObjectMapper mapper = new ObjectMapper();        
         // Convert object to JSON string  
         String entityJson = null;
         try {
-            entityJson = mapper.writeValueAsString(entity);
-            System.out.println("Change Object to JSON String: " + entityJson); 
+            entityJson = mapper.writeValueAsString(entity);            
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
@@ -79,7 +79,7 @@ public class BasecCustomModelTest {
     /**
      * test prefix.
      */
-     /*class CustomModel extends BaseCustomModel {
+     class CustomModel extends BaseCustomModel {
         private String protocol;
     	private int digest;
     	public String getProtocol() {
@@ -95,5 +95,5 @@ public class BasecCustomModelTest {
 			this.digest = digest;
 		}
 		
-    }*/
+    }
 }

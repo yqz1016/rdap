@@ -34,15 +34,12 @@ import java.util.List;
 
 import org.restfulwhois.rdap.core.common.model.Notice;
 import org.restfulwhois.rdap.core.common.support.QueryUri;
-import org.restfulwhois.rdap.core.common.util.BaseCustomModelSerializer;
-import org.restfulwhois.rdap.core.common.util.RdapProperties;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
  * base class of all model. Model is designed according to <a
@@ -78,17 +75,7 @@ public class BaseModel {
     /**
      * notice.
      */
-    private List<Notice> notices;
-    
-    /**
-     * customPrefix .
-     */
-    @JsonIgnore
-    private static final String CUSTOM_PREFIX = "custom_";
-    
-   /* static {
-    	CUSTOM_PREFIX = RdapProperties.getCUSTOM_PREFIX();
-    }*/
+    private List<Notice> notices;    
 
     /**
      * customModel.
@@ -97,8 +84,7 @@ public class BaseModel {
      *      Position for Properties in customModel is at last.
      * </pre>
      */
-    @JsonUnwrapped (prefix = CUSTOM_PREFIX)
-    @JsonSerialize(using = BaseCustomModelSerializer.class)
+    @JsonUnwrapped (prefix = "custom_")  
     private BaseCustomModel customModel;
 
     /**

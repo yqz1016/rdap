@@ -30,6 +30,7 @@
  */
 package org.restfulwhois.rdap.core.common.model.base;
 
+
 /**
  * This is base custom model, for custom columns.
  * 

@@ -129,8 +129,16 @@ public class RdapProperties {
      * list for not implemented uri types.
      */
     private static List<String> notImplementedUriList;
+    
+    private static  String CUSTOM_PREFIX = "custom_";
 
-    /**
+    public static String getCUSTOM_PREFIX() {
+		return CUSTOM_PREFIX;
+	}
+	public static void setCUSTOM_PREFIX(String cUSTOM_PREFIX) {
+		CUSTOM_PREFIX = cUSTOM_PREFIX;
+	}
+	/**
      * clear 'in' and 'not in' tlds in memory,used for reload tlds.
      */
     public static void clearTldsInMemory() {

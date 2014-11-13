@@ -32,30 +32,17 @@ package org.restfulwhois.rdap.common.util;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.hamcrest.core.IsNot;
 import org.hamcrest.core.StringContains;
 import org.junit.Test;
-import org.restfulwhois.rdap.core.common.model.base.BaseCustomModel;
+import org.restfulwhois.rdap.core.common.util.TestClass;
 import org.restfulwhois.rdap.core.entity.model.Entity;
-import org.restfulwhois.rdap.core.entity.model.EntityAddress;
-import org.restfulwhois.rdap.core.entity.model.EntityTel;
-import org.restfulwhois.rdap.core.entity.model.jcard.Jcard;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import ezvcard.Ezvcard;
-import ezvcard.Ezvcard.ParserChainJsonString;
-import ezvcard.VCard;
-import ezvcard.property.Kind;
-
 /**
- * Test for Jcard util.
+ * Test for BasecCustomModel json.
  * 
  * @author jiashuo
  * 
@@ -69,9 +56,8 @@ public class BasecCustomModelTest {
         Entity entity = null;
         entity = new Entity();
         entity.setPort43("port43");      
-        CustomModel custom = new CustomModel();
-        custom.setDigest(1);
-        custom.setProtocol("HTTP");
+        TestClass custom = new TestClass();       
+        custom.setProcool("HTTP");
         entity.setCustomModel(custom);
         ObjectMapper mapper = new ObjectMapper();        
         // Convert object to JSON string  
@@ -93,7 +79,7 @@ public class BasecCustomModelTest {
     /**
      * test prefix.
      */
-     class CustomModel extends BaseCustomModel {
+     /*class CustomModel extends BaseCustomModel {
         private String protocol;
     	private int digest;
     	public String getProtocol() {
@@ -109,5 +95,5 @@ public class BasecCustomModelTest {
 			this.digest = digest;
 		}
 		
-    }
+    }*/
 }

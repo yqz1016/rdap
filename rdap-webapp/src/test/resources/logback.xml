@@ -20,5 +20,5 @@
 	<logger name="cn.cnnic" additivity="false">
 		<level value="DEBUG" />
 		<appender-ref ref="STDOUT" />
-	</logger>
+	</logger>	
 </configuration> 
